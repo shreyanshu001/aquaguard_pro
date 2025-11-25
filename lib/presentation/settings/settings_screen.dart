@@ -88,7 +88,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             _buildDivider(),
-
             _buildSectionHeader('Notifications'),
             _buildSettingItem(
               'Push Notifications',
@@ -104,7 +103,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             _buildDivider(),
-
             _buildSectionHeader('Data & Sync'),
             _buildSettingItem(
               'Auto Refresh',
@@ -127,7 +125,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onTap: () => _showUnitSystemDialog(),
             ),
             _buildDivider(),
-
             _buildSectionHeader('Appearance'),
             _buildSettingItem(
               'Dark Mode',
@@ -151,7 +148,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onTap: () => _showLanguageDialog(),
             ),
             _buildDivider(),
-
             _buildSectionHeader('Privacy & Analytics'),
             _buildSettingItem(
               'Analytics',
@@ -167,7 +163,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             _buildDivider(),
-
             _buildSectionHeader('Support & About'),
             _buildSettingItem(
               'Help & Support',
@@ -194,7 +189,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onTap: () => _showTermsOfService(),
             ),
             _buildDivider(),
-
             _buildSectionHeader('Account Actions'),
             _buildSettingItem(
               'Export Data',
@@ -215,7 +209,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               textColor: AppTheme.errorLight,
               onTap: () => _showSignOutDialog(),
             ),
-
             SizedBox(height: 4.h),
           ],
         ),
