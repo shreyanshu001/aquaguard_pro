@@ -243,10 +243,33 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               ),
             ],
           ),
-          EmergencyAlertButton(
-            isActive: _criticalAlerts.any((alert) =>
-                (alert['severity'] as String).toLowerCase() == 'critical'),
-            onPressed: _handleEmergencyAlert,
+          Row(
+            children: [
+              IconButton(
+                onPressed: () => Navigator.pushNamed(context, '/profile'),
+                icon: CustomIconWidget(
+                  iconName: 'person',
+                  color: colorScheme.onSurface.withValues(alpha: 0.7),
+                  size: 24,
+                ),
+                tooltip: 'Profile',
+              ),
+              IconButton(
+                onPressed: () => Navigator.pushNamed(context, '/settings'),
+                icon: CustomIconWidget(
+                  iconName: 'settings',
+                  color: colorScheme.onSurface.withValues(alpha: 0.7),
+                  size: 24,
+                ),
+                tooltip: 'Settings',
+              ),
+              SizedBox(width: 2.w),
+              EmergencyAlertButton(
+                isActive: _criticalAlerts.any((alert) =>
+                    (alert['severity'] as String).toLowerCase() == 'critical'),
+                onPressed: _handleEmergencyAlert,
+              ),
+            ],
           ),
         ],
       ),

@@ -8,21 +8,25 @@ import '../widgets/custom_error_widget.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 🚨 CRITICAL: Custom error handling - DO NOT REMOVE
   ErrorWidget.builder = (FlutterErrorDetails details) {
     return CustomErrorWidget(
       errorDetails: details,
     );
   };
-  // 🚨 CRITICAL: Device orientation lock - DO NOT REMOVE
   Future.wait([
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ])
   ]).then((value) {
     runApp(MyApp());
   });
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, screenType) {

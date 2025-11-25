@@ -184,7 +184,6 @@ class WaterQualityGridWidget extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     name,
@@ -195,6 +194,7 @@ class WaterQualityGridWidget extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  SizedBox(height: 1.h),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

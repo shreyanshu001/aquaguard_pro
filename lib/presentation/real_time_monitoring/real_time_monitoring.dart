@@ -401,27 +401,17 @@ class _RealTimeMonitoringState extends State<RealTimeMonitoring>
         showNotificationBadge: true,
         notificationCount: 3,
         actions: [
-          AnimatedBuilder(
-            animation: _refreshAnimationController,
-            builder: (context, child) {
-              return IconButton(
-                onPressed: _isRefreshing ? null : _refreshData,
-                icon: Transform.rotate(
-                  angle: _refreshAnimationController.value * 2 * 3.14159,
-                  child: CustomIconWidget(
-                    iconName: 'refresh',
-                    color: _isRefreshing
-                        ? colorScheme.primary.withValues(alpha: 0.5)
-                        : colorScheme.onPrimary,
-                    size: 24,
-                  ),
-                ),
-                tooltip: 'Refresh Data',
-              );
-            },
+          IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/profile'),
+            icon: CustomIconWidget(
+              iconName: 'person',
+              color: colorScheme.onPrimary,
+              size: 24,
+            ),
+            tooltip: 'Profile',
           ),
           IconButton(
-            onPressed: _showSettingsBottomSheet,
+            onPressed: () => Navigator.pushNamed(context, '/settings'),
             icon: CustomIconWidget(
               iconName: 'settings',
               color: colorScheme.onPrimary,

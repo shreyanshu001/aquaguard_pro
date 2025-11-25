@@ -5,6 +5,8 @@ import '../presentation/dashboard/dashboard.dart';
 import '../presentation/real_time_monitoring/real_time_monitoring.dart';
 import '../presentation/alerts_notifications/alerts_notifications.dart';
 import '../presentation/reports_analytics/reports_analytics.dart';
+import '../presentation/settings/settings_screen.dart';
+import '../presentation/profile/profile_screen.dart';
 
 class AppRoutes {
   // TODO: Add your routes here
@@ -15,6 +17,8 @@ class AppRoutes {
   static const String realTimeMonitoring = '/real-time-monitoring';
   static const String alertsNotifications = '/alerts-notifications';
   static const String reportsAnalytics = '/reports-analytics';
+  static const String settings = '/settings';
+  static const String profile = '/profile';
 
   static Map<String, WidgetBuilder> routes = {
     initial: (context) => const SplashScreen(),
@@ -24,6 +28,8 @@ class AppRoutes {
     realTimeMonitoring: (context) => RealTimeMonitoring(),
     alertsNotifications: (context) => const AlertsNotifications(),
     reportsAnalytics: (context) => const ReportsAnalytics(),
+    settings: (context) => const SettingsScreen(),
+    profile: (context) => const ProfileScreen(),
     // TODO: Add your other routes here
   };
 }

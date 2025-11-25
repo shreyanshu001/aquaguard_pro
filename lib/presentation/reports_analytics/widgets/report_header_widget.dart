@@ -57,6 +57,25 @@ class ReportHeaderWidget extends StatelessWidget {
           ),
           Row(
             children: [
+              IconButton(
+                onPressed: () => Navigator.pushNamed(context, '/profile'),
+                icon: CustomIconWidget(
+                  iconName: 'person',
+                  color: colorScheme.onSurface.withValues(alpha: 0.7),
+                  size: 24,
+                ),
+                tooltip: 'Profile',
+              ),
+              IconButton(
+                onPressed: () => Navigator.pushNamed(context, '/settings'),
+                icon: CustomIconWidget(
+                  iconName: 'settings',
+                  color: colorScheme.onSurface.withValues(alpha: 0.7),
+                  size: 24,
+                ),
+                tooltip: 'Settings',
+              ),
+              SizedBox(width: 2.w),
               _buildDateRangeSelector(context),
               SizedBox(width: 2.w),
               _buildExportButton(context),
@@ -81,33 +100,29 @@ class ReportHeaderWidget extends StatelessWidget {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children:
-            dateRanges.map((range) {
-              final isSelected = selectedDateRange == range;
-              return GestureDetector(
-                onTap: () => onDateRangeChanged(range),
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
-                  margin: EdgeInsets.only(right: 0.5.w),
-                  decoration: BoxDecoration(
-                    color:
-                        isSelected ? colorScheme.primary : Colors.transparent,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: Text(
-                    range,
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      color:
-                          isSelected
-                              ? colorScheme.onPrimary
-                              : colorScheme.onSurface.withValues(alpha: 0.7),
-                      fontWeight:
-                          isSelected ? FontWeight.w600 : FontWeight.w400,
-                    ),
-                  ),
+        children: dateRanges.map((range) {
+          final isSelected = selectedDateRange == range;
+          return GestureDetector(
+            onTap: () => onDateRangeChanged(range),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
+              margin: EdgeInsets.only(right: 0.5.w),
+              decoration: BoxDecoration(
+                color: isSelected ? colorScheme.primary : Colors.transparent,
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Text(
+                range,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: isSelected
+                      ? colorScheme.onPrimary
+                      : colorScheme.onSurface.withValues(alpha: 0.7),
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
                 ),
-              );
-            }).toList(),
+              ),
+            ),
+          );
+        }).toList(),
       ),
     );
   }

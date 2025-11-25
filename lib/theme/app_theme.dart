@@ -119,15 +119,15 @@ class AppTheme {
       iconTheme: IconThemeData(color: onPrimaryLight),
       actionsIconTheme: IconThemeData(color: onPrimaryLight),
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardLight,
       elevation: 1.0, // Subtle elevation for card hierarchy
       shadowColor: shadowLight,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    ),
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+    ), // Added const
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: surfaceLight,
       selectedItemColor: primaryLight,
@@ -289,7 +289,7 @@ class AppTheme {
         fontWeight: FontWeight.w500,
       ),
     ),
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: primaryLight,
       unselectedLabelColor: textMediumEmphasisLight,
       indicatorColor: primaryLight,
@@ -348,7 +348,8 @@ class AppTheme {
         borderRadius: BorderRadius.circular(16.0),
         side: BorderSide(color: dividerLight),
       ),
-    ), dialogTheme: DialogThemeData(backgroundColor: dialogLight),
+    ),
+    dialogTheme: DialogThemeData(backgroundColor: dialogLight),
   );
 
   /// Dark theme - maintains professional appearance in low-light conditions
@@ -398,15 +399,15 @@ class AppTheme {
       iconTheme: IconThemeData(color: onSurfaceDark),
       actionsIconTheme: IconThemeData(color: onSurfaceDark),
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: cardDark,
       elevation: 1.0,
       shadowColor: shadowDark,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    ),
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+    ), // Added const
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: surfaceDark,
       selectedItemColor: primaryDark,
@@ -568,7 +569,7 @@ class AppTheme {
         fontWeight: FontWeight.w500,
       ),
     ),
-    tabBarTheme: TabBarTheme(
+    tabBarTheme: TabBarThemeData(
       labelColor: primaryDark,
       unselectedLabelColor: textMediumEmphasisDark,
       indicatorColor: primaryDark,
@@ -627,7 +628,8 @@ class AppTheme {
         borderRadius: BorderRadius.circular(16.0),
         side: BorderSide(color: dividerDark),
       ),
-    ), dialogTheme: DialogThemeData(backgroundColor: dialogDark),
+    ),
+    dialogTheme: const DialogThemeData(backgroundColor: dialogDark),
   );
 
   /// Helper method to build text theme based on brightness

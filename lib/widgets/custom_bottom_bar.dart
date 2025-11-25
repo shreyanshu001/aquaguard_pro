@@ -59,6 +59,18 @@ class CustomBottomBar extends StatelessWidget {
       label: 'Reports',
       route: '/reports-analytics',
     ),
+    BottomNavItem(
+      icon: Icons.settings_outlined,
+      activeIcon: Icons.settings,
+      label: 'Settings',
+      route: '/settings',
+    ),
+    BottomNavItem(
+      icon: Icons.person_outlined,
+      activeIcon: Icons.person,
+      label: 'Profile',
+      route: '/profile',
+    ),
   ];
 
   @override
@@ -82,8 +94,8 @@ class CustomBottomBar extends StatelessWidget {
       ),
       child: SafeArea(
         child: Container(
-          height: 60,
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          height: 70,
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: _navItems.asMap().entries.map((entry) {
@@ -122,7 +134,7 @@ class CustomBottomBar extends StatelessWidget {
       onTap: () => _handleNavTap(context, index, item.route),
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 6),
+        padding: EdgeInsets.symmetric(vertical: 4),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,

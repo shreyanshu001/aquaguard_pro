@@ -150,127 +150,131 @@ class _CurrentReadingsCardState extends State<CurrentReadingsCard> {
           width: 1,
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      parameter,
-                      style: theme.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(height: 0.5.h),
-                    Text(
-                      location,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: colorScheme.onSurface.withValues(alpha: 0.7),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(2.w),
-                decoration: BoxDecoration(
-                  color: statusColor.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: CustomIconWidget(
-                  iconName: _getIconName(statusIcon),
-                  color: statusColor,
-                  size: 6.w,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 3.h),
-          Center(
-            child: Column(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                RichText(
-                  text: TextSpan(
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextSpan(
-                        text: value.toStringAsFixed(1),
-                        style: AppTheme.dataDisplayLarge(context).copyWith(
-                          color: statusColor,
-                          fontWeight: FontWeight.w700,
+                      Text(
+                        parameter,
+                        style: theme.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                      TextSpan(
-                        text: ' $unit',
-                        style: theme.textTheme.titleMedium?.copyWith(
+                      SizedBox(height: 0.5.h),
+                      Text(
+                        location,
+                        style: theme.textTheme.bodySmall?.copyWith(
                           color: colorScheme.onSurface.withValues(alpha: 0.7),
-                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.h),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
+                  padding: EdgeInsets.all(2.w),
                   decoration: BoxDecoration(
                     color: statusColor.withValues(alpha: 0.1),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Text(
-                    status.toUpperCase(),
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      color: statusColor,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 0.5,
+                  child: CustomIconWidget(
+                    iconName: _getIconName(statusIcon),
+                    color: statusColor,
+                    size: 6.w,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 3.h),
+            Center(
+              child: Column(
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: value.toStringAsFixed(1),
+                          style: AppTheme.dataDisplayLarge(context).copyWith(
+                            color: statusColor,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' $unit',
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: colorScheme.onSurface.withValues(alpha: 0.7),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 1.h),
+                  Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
+                    decoration: BoxDecoration(
+                      color: statusColor.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      status.toUpperCase(),
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        color: statusColor,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.5,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 2.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Last updated: ${_formatLastUpdated(reading['lastUpdated'])}',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: colorScheme.onSurface.withValues(alpha: 0.5),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => _showDetailedView(reading),
+                  borderRadius: BorderRadius.circular(20),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Details',
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: colorScheme.primary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(width: 1.w),
+                        CustomIconWidget(
+                          iconName: 'arrow_forward_ios',
+                          color: colorScheme.primary,
+                          size: 3.w,
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-          SizedBox(height: 2.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Last updated: ${_formatLastUpdated(reading['lastUpdated'])}',
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: colorScheme.onSurface.withValues(alpha: 0.5),
-                ),
-              ),
-              InkWell(
-                onTap: () => _showDetailedView(reading),
-                borderRadius: BorderRadius.circular(20),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Details',
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          color: colorScheme.primary,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      SizedBox(width: 1.w),
-                      CustomIconWidget(
-                        iconName: 'arrow_forward_ios',
-                        color: colorScheme.primary,
-                        size: 3.w,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

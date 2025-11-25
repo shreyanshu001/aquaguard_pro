@@ -417,9 +417,18 @@ class _AlertsNotificationsState extends State<AlertsNotifications>
         notificationCount: unreadCount,
         actions: [
           IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/profile'),
+            icon: CustomIconWidget(
+              iconName: 'person',
+              color: colorScheme.onPrimary,
+              size: 24,
+            ),
+            tooltip: 'Profile',
+          ),
+          IconButton(
             onPressed: _showConfigureAlerts,
             icon: CustomIconWidget(
-              iconName: 'tune',
+              iconName: 'settings',
               color: colorScheme.onPrimary,
               size: 24,
             ),
